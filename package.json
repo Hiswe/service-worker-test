@@ -1,0 +1,21 @@
+{
+  "name": "service-worker-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Hiswe <hiswehalya@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "8.9.4"
+  },
+  "scripts": {
+    "build": "gulp cp-images",
+    "start": "npm run build && ws --https --port 3500 --directory custom-sw --log.format tiny",
+    "workbox": "npm run build &&  ws --https --port 3600 --directory workbox-sw --log.format tiny"
+  },
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "local-web-server": "^2.4.0",
+    "workbox-cli": "^2.1.2",
+    "workbox-sw": "^2.1.2"
+  }
+}
