@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Service wroker test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul {
+      display: grid;
+      grid-template-columns: repeat( 3, 1fr);
+      grid-gap: 1em;
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><img src="/images/01-temple.jpg" alt="temple"></li>
+    <li><img src="/images/02-stairs.jpg" alt="stairs"></li>
+    <li><img src="/images/03-chedi.jpg" alt="chedi"></li>
+    <li><img src="/images/04-boudha.jpg" alt="boudha"></li>
+    <li><img src="/images/05-flowers.jpg" alt="flowers"></li>
+    <li><img src="/images/06-city.jpg" alt="city"></li>
+  </ul>
+  <script>
+    (function() {
+      if (!navigator.serviceWorker) return
+      navigator
+      .serviceWorker
+      .register( '/workbox-sw-test.js' )
+      .then( reg  => {
+        reg.addEventListener( 'updatefound', () => {
+          console.log( 'updatefound' )
+          const newWorker = reg.installing;
+          newWorker.addEventListener( 'statechange', () => {
+            console.log( 'newworker statechange' );
+          });
+        });
+      })
+      .catch( error => {
+        console.log('sorry', error);
+      })
+    })();
+  </script>
+</body>
+</html>

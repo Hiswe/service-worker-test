@@ -8,11 +8,14 @@
     "node": "8.9.4"
   },
   "scripts": {
-    "build": "gulp cp-images",
-    "start": "npm run build && ws --https --port 3500 --directory custom-sw --log.format tiny",
-    "workbox": "npm run build &&  ws --https --port 3600 --directory workbox-sw --log.format tiny"
+    "copy-images": "gulp cp-images",
+    "build:custom": "npm run copy-images",
+    "build:workbox": "npm run copy-images && gulp clean-workbox && workbox generate:sw",
+    "serve:custom": "npm run build:custom && ws --https --port 3500 --directory custom-sw --log.format tiny",
+    "serve:workbox": "npm run build:workbox &&  ws --https --port 3600 --directory workbox-sw --log.format tiny"
   },
   "dependencies": {
+    "del": "^3.0.0",
     "gulp": "^4.0.0",
     "local-web-server": "^2.4.0",
     "workbox-cli": "^2.1.2",
