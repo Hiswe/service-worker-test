@@ -45,7 +45,7 @@ npm run serve:custom
 
 will run on [https://localhost:3500](https://localhost:3500)
 
-### using google workbox
+### using [google workbox](https://developers.google.com/web/tools/workbox/)
 
 ```
 npm run serve:workbox

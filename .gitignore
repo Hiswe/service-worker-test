@@ -2,6 +2,7 @@
 
 /custom-sw/images
 /workbox-sw/images
+/workbox-sw/workbox-sw*
 
 # Logs
 logs
