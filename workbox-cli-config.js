@@ -1,3 +1,6 @@
+// all options are listed here
+// https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.Configuration
+
 module.exports = {
   "cacheId": "workbox-sw-test",
   "globDirectory": "workbox-sw/",
